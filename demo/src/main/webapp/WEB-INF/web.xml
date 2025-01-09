@@ -21,6 +21,31 @@
     <servlet-name>ConnexionServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AjoutServlet</servlet-name>
+    <servlet-class>com.testjee.demo.AjoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjoutServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SupprimerServlet</servlet-name>
+    <servlet-class>com.testjee.demo.SupprimerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SupprimerServlet</servlet-name>
+    <url-pattern>/sup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ModifierServlet</servlet-name>
+    <servlet-class>com.testjee.demo.ModifierServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifierServlet</servlet-name>
+    <url-pattern>/mod</url-pattern>
+  </servlet-mapping>
+
   <resource-ref>
     <res-ref-name>DataSource</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>

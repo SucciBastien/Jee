@@ -10,8 +10,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name="formateur")
 public class Formateur {
+    public Formateur(){}
+
+    public Formateur(String username, String mdp, String nom, String prenom) {
+        super();
+        this.username = username;
+        this.mdp = mdp;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="idformateur", nullable=false)
     private Integer id;
 
