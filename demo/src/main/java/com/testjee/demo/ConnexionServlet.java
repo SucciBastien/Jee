@@ -1,6 +1,7 @@
 package com.testjee.demo;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
@@ -43,15 +44,16 @@ public class ConnexionServlet extends HttpServlet {
 			CriteriaQuery<Formateur> all = cq.select(rootEntry);
 		
 			TypedQuery<Formateur> allQuery = entityManager.createQuery(all);
-	
+			 
 			String usernameToCheck = request.getParameter("username");
 			String mdpToCheck = request.getParameter("password");
-			
+			System.out.println(allQuery.getResultList().getClass().getName());
 			
 			for (Formateur formateur : allQuery.getResultList()) {
 				String username = formateur.getUsername();
 				String mdp = formateur.getMdp();
 				if(usernameToCheck.equals(username) && PasswordUtils.verifyPassword(mdpToCheck, mdp)){
+					request.setAttribute("formateurs", allQuery.getResultList());
 					request.setAttribute("formateurCo", formateur);
 					request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
 				}else{

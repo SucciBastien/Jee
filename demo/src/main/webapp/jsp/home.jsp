@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.testjee.demo.model.Formateur" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@ taglib prefix="c" uri="http://jakarta.apache.org/taglibs/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
     <head>
@@ -23,5 +26,8 @@
             <input type="number" value=<%= ((Formateur) request.getAttribute("formateurCo")).getId() %> hidden name="idFormateurToUpdate" />
             <button type="submit">Modifier</button>
         </form>
+        <c:forEach var="formateur" items="${formateurs}">
+            <div><c:out value="${formateur.getId()}"></c:out><c:out value="${formateur.getUsername()}"></c:out><c:out value="${formateur.getNom()}"></c:out><c:out value="${formateur.getPrenom()}"></c:out></div>
+        </c:forEach>
     </body>
 </html>
